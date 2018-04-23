@@ -2,44 +2,59 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+        crossorigin="anonymous">
+
     <!-- production version, optimized for size and speed -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
 <body>
     <div id="exemplo">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" v-model="nome">
-        <br>
+        <form class="pure-form pure-form-aligned">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" v-model="nome">
+                </div>
 
-        <label for="email">Email</label>
-        <input type="text" id="email" v-model="email">
-        <br>
+                <div class="pure-control-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" v-model="email">
+                </div>
 
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" v-model="telefone">
-        <br>
+                <div class="pure-control-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" v-model="telefone">
+                </div>
 
-        <button v-on:click="salvar">Salvar</button>
+                <div class="pure-controls">
+                    <button type="button" v-on:click="salvar"
+                    class="pure-button pure-button-primary">Salvar</button>
+                </div>
+            </fieldset>
 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Ação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="pessoa in pessoas">
-                    <td>{{ pessoa.nome }}</td>
-                    <td>{{ pessoa.email }}</td>
-                    <td>{{ pessoa.telefone }}</td>
-                    <td><span v-on:click='excluir(pessoa.email)'>Excluir</span></td>
-                </tr>
-            </tbody>
-        </table>
+            <table class="pure-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="pessoa in pessoas">
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.email }}</td>
+                        <td>{{ pessoa.telefone }}</td>
+                        <td>
+                            <span v-on:click='excluir(pessoa.email)'>Excluir</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
 
         <script src="cadastro_pessoa.js"></script>
     </div>
