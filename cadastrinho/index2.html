@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+
+    <input id="exemplo" type="text" v-model="a">
+
+    <script>
+        var data = { a: 1 }
+        var vm = new Vue({
+            el: '#exemplo',
+            data: data
+        })
+
+        // $watch é um método da instância
+        // Esta função será executada quando `vm.a` mudar
+        vm.$watch('a', function (newValue, oldValue) {
+            console.log(`o valor de a mudou de: ${oldValue} para: ${newValue}`)
+        })
+    </script>
+</body>
+
+</html>
