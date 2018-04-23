@@ -22,6 +22,25 @@
 
         <button v-on:click="salvar">Salvar</button>
 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="pessoa in pessoas">
+                    <td>{{ pessoa.nome }}</td>
+                    <td>{{ pessoa.email }}</td>
+                    <td>{{ pessoa.telefone }}</td>
+                    <td><span v-on:click='excluir(pessoa.email)'>Excluir</span></td>
+                </tr>
+            </tbody>
+        </table>
+
         <script src="cadastro_pessoa.js"></script>
     </div>
 </body>
